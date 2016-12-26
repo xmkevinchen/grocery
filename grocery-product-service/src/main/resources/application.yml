@@ -1,6 +1,13 @@
 spring:
   application:
     name: product-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/grocery-product-db
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write_dates_as_timestamps: false
 
 server:
   port: ${PORT:8100}
