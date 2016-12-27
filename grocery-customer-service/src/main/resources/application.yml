@@ -4,3 +4,7 @@ server:
 spring:
   application:
     name: customer-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://fire-dragon.local:8761/eureka
