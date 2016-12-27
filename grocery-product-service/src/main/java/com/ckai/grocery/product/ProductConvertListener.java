@@ -17,9 +17,12 @@ public class ProductConvertListener extends AbstractMongoEventListener<Product> 
 
     @Override
     public void onBeforeConvert(BeforeConvertEvent<Product> event) {
-        Product po = repository.findOne(event.getSource().getId());
-        if (po != null) {
-            event.getSource().setCreatedAt(po.getCreatedAt());
+
+        if (event.getSource().getId() != null) {
+            Product po = repository.findOne(event.getSource().getId());
+            if (po != null) {
+                event.getSource().setCreatedAt(po.getCreatedAt());
+            }
         }
 
     }
